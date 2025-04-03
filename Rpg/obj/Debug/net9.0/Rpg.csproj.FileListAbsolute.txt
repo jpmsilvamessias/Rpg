@@ -1,0 +1,14 @@
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\bin\Debug\net9.0\Rpg.exe
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\bin\Debug\net9.0\Rpg.deps.json
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\bin\Debug\net9.0\Rpg.runtimeconfig.json
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\bin\Debug\net9.0\Rpg.dll
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\bin\Debug\net9.0\Rpg.pdb
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.AssemblyInfoInputs.cache
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.AssemblyInfo.cs
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.csproj.CoreCompileInputs.cache
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.dll
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\refint\Rpg.dll
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.pdb
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\Rpg.genruntimeconfig.cache
+C:\Users\joaop\Downloads\jogoDeBatalha\Rpg\Rpg\obj\Debug\net9.0\ref\Rpg.dll
