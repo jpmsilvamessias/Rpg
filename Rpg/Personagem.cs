@@ -41,7 +41,7 @@ public class Personagem
         return dano / 2;
     }
 
-    public void poticao(List<int> a )
+    public void pocaoCura(List<int> a )
     {
         try
         {
@@ -56,6 +56,8 @@ public class Personagem
 
     public void receberDano(int dano)
     {
-      this.vida -= dano;
+        this.vida -= dano;
     }
+    
+    
 }
