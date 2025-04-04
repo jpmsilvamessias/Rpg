@@ -41,7 +41,7 @@ public class Personagem
         return dano / 2;
     }
 
-    public void poti(List<int> a )
+    public void poticao(List<int> a )
     {
         try
         {
@@ -52,5 +52,10 @@ public class Personagem
         {
             Console.WriteLine("Erro lista esra vazia"+e.Message);
         }
+    }
+
+    public void receberDano(int dano)
+    {
+      this.vida -= dano;
     }
 }
