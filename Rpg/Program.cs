@@ -11,7 +11,7 @@ class Program
         Personagem personagem = new Personagem(nome);
         Console.WriteLine($"seja bem vindo jogador{nome}  ");
         Personagem inimigo = new Personagem("goblin");
-       Console.WriteLine($"{inimigo.Nome}");
+       
         
         
     }
