@@ -9,6 +9,16 @@ public class Personagem
 
     public String Nome => nome;
     
+    
+
+    public int Vida
+    {
+        get { return vida; }
+        set{ vida=value;}
+    }
+    
+  
+    
     public Personagem(string nome)
     {
         this.nome = nome;
@@ -35,6 +45,8 @@ public class Personagem
         int acerto= random.Next(20, 30);
         return acerto;
     }
+    
+    
 
     public int defesa(int dano)
     {
@@ -52,11 +64,6 @@ public class Personagem
         {
             Console.WriteLine("Erro lista esra vazia"+e.Message);
         }
-    }
-
-    public void receberDano(int dano)
-    {
-        this.vida -= dano;
     }
     
     

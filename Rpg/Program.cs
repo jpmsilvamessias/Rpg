@@ -12,12 +12,39 @@ class Program
         Console.WriteLine($"seja bem vindo jogador{nome} ");
         Personagem inimigo = new Personagem("goblin");
         bool resultado = false;
+        int decisao = 0;
+        
+        
         do
         {
-            if(personagem.vida = )
-            Console.WriteLine("Escolha as seguintes opções: 1 - Ataque Leve 2 - Ataque Médio 3 - Ataque Forte 4 - Defesa 5 - Poção");
-            
+                Console.WriteLine("Escolha as seguintes opções: 1 - Ataque Leve 2 - Ataque Médio 3 - Ataque Forte 4 - Defesa 5 - Poção");
+                decisao = Convert.ToInt32(Console.ReadLine());
+                switch (decisao)
+                {
+                    case 1:
+                        Console.WriteLine("Ataque fofo");
+                        inimigo.Vida -= personagem.ataqueLeve();
+                         break; 
+                    case 2:
+                        Random random=new Random();
+                        int chance = random.Next(1, 80);
+                        if (chance < 80)
+                        {
+                            inimigo.Vida -= personagem.ataqueMedio();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Errou o inimigo");
+                        }
+                        break;
+                    case 3:
+                        
+                } 
+                
         } while (resultado != true);
     }
     
+    
+    
 }
+
