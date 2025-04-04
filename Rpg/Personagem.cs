@@ -53,11 +53,11 @@ public class Personagem
         return dano / 2;
     }
 
-    public void pocaoCura(List<int> a )
+    public void pocaoCura()
     {
         try
         {
-            a.RemoveAt(0);
+            potion.RemoveAt(0);
             this.vida += 20;
         }
         catch (ArgumentOutOfRangeException e )
