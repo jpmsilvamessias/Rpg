@@ -10,65 +10,60 @@ class Program
         string nome = Console.ReadLine();
         Personagem personagem = new Personagem(nome);
         Console.WriteLine($"seja bem vindo jogador{nome} ");
-        Personagem inimigo = new Personagem("goblin");
+        Inimigo inimigo = new Inimigo("goblin");
+        
         bool resultado = false;
         int decisao = 0;
-        Random aleatorio = new Random();
-        int turnoinimigo = aleatorio.Next(1, 5);
-        
         
         do
-        {
+        {        
+              bool defesa=false;
                 Console.WriteLine("Escolha as seguintes opções: 1 - Ataque Leve 2 - Ataque Médio 3 - Ataque Forte 4 - Defesa 5 - Poção");
                 decisao = Convert.ToInt32(Console.ReadLine());
+
                 switch (decisao)
                 {
                     case 1:
-                        Console.WriteLine("Ataque fofo");
-                        inimigo.Vida -= personagem.ataqueLeve();
+                        if (inimigo.inimigotr() == 4)
+                        {
+                            Console.WriteLine("Dano reduzido inimigo se defendeu");
+                            inimigo.defesa(personagem.ataqueLeve());
+                        }
+                         
+                        personagem.ataqueLeve();
                         break;
+                    
                     case 2:
-                        Random random = new Random();
-                        int chance = random.Next(1, 80);
-                        if (chance <= 80)
-                        {
-                            inimigo.Vida -= personagem.ataqueMedio();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Errou o inimigo");
-                        }
 
+                        if (inimigo.inimigotr() == 4)
+                        {
+                            Console.WriteLine("Dano reduzido inimigo se defendeu");
+                            inimigo.defesa(personagem.ataqueMedio());
+                        }
+                        personagem.ataqueMedio();
                         break;
                     case 3:
-                        Random random2 = new Random();
-                        int chance2 = random2.Next(1, 50);
-                        if (chance2 <= 50)
+                        if (inimigo.inimigotr() == 4)
                         {
-                            inimigo.Vida -= personagem.ataqueForte();
+                            Console.WriteLine("Dano reduzido inimigo se defendeu");
+                            inimigo.defesa(personagem.ataqueForte());
                         }
-                        else
-                        {
-                            Console.WriteLine("Errou o inimigo");
-                        }
-
+                         personagem.ataqueForte();
                         break;
                     case 4:
-                        // continuar depois (jao faz) 
-                        break;
-                    case 5:
-                        personagem.pocaoCura();
-                        break;
-                    default:
-                        Console.WriteLine("Valor indevido, faça uma nova ação! ");
+                        Console
+                        .WriteLine("se prepara para defender");
+                        defesa = true;
                         break;
                 }
+                
 
 
         } while (resultado != true);
     }
-    
-    
-    
-}
+
+
+   
+    }
+
 

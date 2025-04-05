@@ -28,29 +28,52 @@ public class Personagem
     public int ataqueLeve()
     {
         Random random = new Random();
-        int acerto= random.Next(1, 10);
-        return acerto;
+        int acerto= random.Next(1, 11);
+        Console.WriteLine($"Seu ataque leve acerto e causou{acerto} de dano");
+        return 0;
     }
 
     public int ataqueMedio()
     {
+        
         Random random = new Random();
-        int acerto= random.Next(10, 20);
-        return acerto;
+        int porcentagem = random.Next(1, 100);
+        int acerto= random.Next(10, 21);
+        if (porcentagem <= 80)
+        {
+            Console.WriteLine($"seu ataque acertou e causo{acerto} de dano");
+            return acerto;
+        }
+        else
+        {
+            Console.WriteLine("seu ataque  medio errou");
+        }
+        return 0;
     }
 
-    public int ataqueForte()
+    public int  ataqueForte()
     {
         Random random = new Random();
-        int acerto= random.Next(20, 30);
-        return acerto;
-    }
-    
-    
+        int porcentagem = random.Next(1, 100);
+        int acerto= random.Next(20, 31);
 
-    public int defesa(int dano)
+        if (porcentagem <= 50)
+        {
+            Console.WriteLine($"seu ataque forte acertou e causo{acerto} de dano");
+        }
+        else
+        {
+            Console.WriteLine("seu ataque forte errou");
+        }
+
+        return 0;
+    }
+
+    public void defesa(int dano)
     {
-        return dano / 2;
+        int danoreduzido = dano / 2;
+        this.Vida -= danoreduzido;
+        Console.WriteLine($"Você defendeu e recebeu apenas {danoreduzido} de dano.");
     }
 
     public void pocaoCura()
