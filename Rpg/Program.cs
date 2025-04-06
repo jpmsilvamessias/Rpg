@@ -4,66 +4,119 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        Console.WriteLine("seja bem vindo ao Rpg");
-        Console.WriteLine("vamos criar seu personagem! insira um nome:");
-        string nome = Console.ReadLine();
-        Personagem personagem = new Personagem(nome);
-        Console.WriteLine($"seja bem vindo jogador{nome} ");
-        Inimigo inimigo = new Inimigo("goblin");
-        
-        bool resultado = false;
-        int decisao = 0;
-        
-        do
-        {        
-              bool defesa=false;
-                Console.WriteLine("Escolha as seguintes opções: 1 - Ataque Leve 2 - Ataque Médio 3 - Ataque Forte 4 - Defesa 5 - Poção");
-                decisao = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Seja bem-vindo ao RPG!");
+        Console.Write("Digite o nome do seu personagem: ");
+        string nomeJogador = Console.ReadLine();
 
-                switch (decisao)
-                {
-                    case 1:
-                        if (inimigo.inimigotr() == 4)
-                        {
-                            Console.WriteLine("Dano reduzido inimigo se defendeu");
-                            inimigo.defesa(personagem.ataqueLeve());
-                        }
-                         
-                        personagem.ataqueLeve();
-                        break;
-                    
-                    case 2:
+        Personagem jogador = new Personagem(nomeJogador);
+        Inimigo inimigo = new Inimigo("Goblin");
 
-                        if (inimigo.inimigotr() == 4)
-                        {
-                            Console.WriteLine("Dano reduzido inimigo se defendeu");
-                            inimigo.defesa(personagem.ataqueMedio());
-                        }
-                        personagem.ataqueMedio();
-                        break;
-                    case 3:
-                        if (inimigo.inimigotr() == 4)
-                        {
-                            Console.WriteLine("Dano reduzido inimigo se defendeu");
-                            inimigo.defesa(personagem.ataqueForte());
-                        }
-                         personagem.ataqueForte();
-                        break;
-                    case 4:
-                        Console
-                        .WriteLine("se prepara para defender");
-                        defesa = true;
-                        break;
-                }
-                
+        bool fimDeJogo = false;
 
+        while (!fimDeJogo)
+        {
+            Console.WriteLine($"\nVida de {jogador.Nome}: {jogador.Vida}");
+            Console.WriteLine($"Vida de {inimigo.Nome}: {inimigo.Vida}");
+            Console.WriteLine("\nEscolha uma ação:");
+            Console.WriteLine("1 - Ataque Leve");
+            Console.WriteLine("2 - Ataque Médio");
+            Console.WriteLine("3 - Ataque Forte");
+            Console.WriteLine("4 - Defender");
+            Console.WriteLine("5 - Usar Poção");
 
-        } while (resultado != true);
+            int escolhaJogador;
+            int.TryParse(Console.ReadLine(), out escolhaJogador);
+
+            int acaoInimigo = inimigo.inimigotr();
+            bool jogadorDefendeu = escolhaJogador == 4;
+            bool inimigoDefendeu = acaoInimigo == 4;
+
+            Console.WriteLine();
+
+            switch (escolhaJogador)
+            {
+                case 1:
+                    int danoLeve = jogador.ataqueLeve();
+                    if (inimigoDefendeu)
+                        inimigo.defesa(danoLeve);
+                    else
+                        inimigo.Vida -= danoLeve;
+                    break;
+
+                case 2:
+                    int danoMedio = jogador.ataqueMedio();
+                    if (inimigoDefendeu)
+                        inimigo.defesa(danoMedio);
+                    else
+                        inimigo.Vida -= danoMedio;
+                    break;
+
+                case 3:
+                    int danoForte = jogador.ataqueForte();
+                    if (inimigoDefendeu)
+                        inimigo.defesa(danoForte);
+                    else
+                        inimigo.Vida -= danoForte;
+                    break;
+
+                case 4:
+                    Console.WriteLine($"{jogador.Nome} se preparou para defender.");
+                    break;
+
+                case 5:
+                    jogador.pocaoCura();
+                    break;
+
+                default:
+                    Console.WriteLine("Escolha inválida!");
+                    break;
+            }
+
+            if (inimigo.Vida <= 0)
+            {
+                Console.WriteLine($"\nParabéns {jogador.Nome}, você derrotou o {inimigo.Nome}!");
+                break;
+            }
+
+            Console.WriteLine("\nTurno do inimigo:");
+            switch (acaoInimigo)
+            {
+                case 1:
+                    int danoInimigoLeve = inimigo.ataqueLeve();
+                    if (jogadorDefendeu)
+                        jogador.defesa(danoInimigoLeve);
+                    else
+                        jogador.Vida -= danoInimigoLeve;
+                    break;
+
+                case 2:
+                    int danoInimigoMedio = inimigo.ataqueMedio();
+                    if (jogadorDefendeu)
+                        jogador.defesa(danoInimigoMedio);
+                    else
+                        jogador.Vida -= danoInimigoMedio;
+                    break;
+
+                case 3:
+                    int danoInimigoForte = inimigo.ataqueForte();
+                    if (jogadorDefendeu)
+                        jogador.defesa(danoInimigoForte);
+                    else
+                        jogador.Vida -= danoInimigoForte;
+                    break;
+
+                case 4:
+                    Console.WriteLine($"{inimigo.Nome} se preparou para defender.");
+                    break;
+            }
+
+            if (jogador.Vida <= 0)
+            {
+                Console.WriteLine($"\n{jogador.Nome} foi derrotado pelo {inimigo.Nome}...");
+                fimDeJogo = true;
+            }
+        }
+
+        Console.WriteLine("\nFim de jogo!");
     }
-
-
-   
-    }
-
-
+}
